@@ -1,9 +1,8 @@
+
 import pytest
-import socket
-import threading
-import json
-from blitztext.wakeword import WakewordListener
+
 from blitztext.wakeword_bench import _drain_detections
+
 
 def test_drain_detections_bounds():
     with pytest.raises(ValueError, match="Invalid payload length"):
