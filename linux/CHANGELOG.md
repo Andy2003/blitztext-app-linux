@@ -9,6 +9,14 @@ The version is defined in [`blitztext/__init__.py`](blitztext/__init__.py).
 
 ## [Unreleased]
 
+## [2.03.63] - 2026-10-01
+
+### Fixed
+- **Hotkeys on Wayland** (e.g. Ubuntu 26.04 / GNOME 50, which has no Xorg
+  session): pynput only saw keys in XWayland windows. On Wayland, keys are now
+  read from `/dev/input` via evdev (requires the `input` group). Keys injected
+  by `ydotool` are ignored. Letters map by physical (US) position.
+
 ## [2.03.62] - 2026-10-01
 
 ### Fixed
