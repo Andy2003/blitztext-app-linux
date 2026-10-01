@@ -9,6 +9,20 @@ The version is defined in [`blitztext/__init__.py`](blitztext/__init__.py).
 
 ## [Unreleased]
 
+## [2.03.64] - 2026-10-01
+
+### Fixed
+- **Wayland: umlauts and punctuation typed wrong** (`ydotool type` sends
+  US-layout keycodes). Without `wtype` (unavailable on GNOME), text is now
+  typed as raw keycodes resolved for the active GNOME layout (libxkbcommon), so
+  the clipboard is untouched. Characters missing from the layout use IBus
+  unicode entry (Ctrl+Shift+U); line breaks are Shift+Enter. Clipboard paste
+  only if the layout can't be determined.
+- **Wayland: Ctrl+V / Enter not sent** — ydotool ≥ 1.0 needs raw keycodes,
+  not `ctrl+v` / `enter`.
+- **Wayland: overlay stole focus** from the target window. GTK now runs under
+  XWayland, where the overlay is focus-free (`GDK_BACKEND` overrides).
+
 ## [2.03.63] - 2026-10-01
 
 ### Fixed
